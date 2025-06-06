@@ -1,3 +1,7 @@
+## [2.5.4]
+
+- Update `intl` version [#397](https://github.com/hyochan/flutter_calendar_carousel/pull/397)
+
 ## [2.5.3]
 
 - Add ability to configure day border radius by setting `daysBorderRadius` ([#391](https://github.com/hyochan/flutter_calendar_carousel/pull/391))
