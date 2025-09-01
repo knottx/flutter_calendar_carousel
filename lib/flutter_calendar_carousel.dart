@@ -350,6 +350,10 @@ class _CalendarState<T extends EventInterface>
                     : _localeDate.format(this._dates[this._pageNum])),
             headerTextStyle: widget.headerTextStyle,
             showHeaderButtons: widget.showHeaderButton,
+            showLeftButton: _pageNum > 0,
+            showRightButton: widget.weekFormat
+                ? _pageNum < this._weeks.length - 1
+                : _pageNum < this._dates.length - 1,
             headerIconColor: widget.iconColor,
             leftButtonIcon: widget.leftButtonIcon,
             rightButtonIcon: widget.rightButtonIcon,
@@ -945,11 +949,7 @@ class _CalendarState<T extends EventInterface>
         });
 
         if (shouldJumpToPage) {
-          _controller.animateToPage(
-            pageNum,
-            duration: const Duration(milliseconds: 1),
-            curve: const Threshold(0),
-          );
+          _controller.jumpToPage(pageNum);
         }
       } else {
         setState(() {
@@ -961,11 +961,7 @@ class _CalendarState<T extends EventInterface>
         });
 
         if (shouldJumpToPage) {
-          _controller.animateToPage(
-            pageNum,
-            duration: const Duration(milliseconds: 1),
-            curve: const Threshold(0),
-          );
+          _controller.jumpToPage(pageNum);
         }
       }
 
